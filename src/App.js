@@ -1,11 +1,14 @@
 import { Link, Outlet } from "react-router-dom";
+import './style.css';
 
 function App() {
   return (
-    <div className="App">
-      <h1>App</h1>
-      <Link to='/home'>Home</Link>
-      <Link to='/shop'>Shop</Link>
+    <div>
+      <nav className='nav'>
+        <h1 className="nav--title">App</h1>
+        <Link to='/home' className="nav--link">Home</Link>
+        <Link to='/shop' className="nav--link">Shop</Link>
+      </nav>
       <Outlet />
     </div>
   );
