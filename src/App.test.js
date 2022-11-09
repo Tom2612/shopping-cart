@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import App from './App';
 import RouteSwitch from './RouteSwitch';
 
@@ -19,5 +20,17 @@ describe('tests for initial loading', () => {
     const { getByRole } = render(<RouteSwitch />);
     const testText = getByRole('heading', { level: 2});
     expect(testText.textContent).not.toBe('Shop')
+  });
+
+  it('Changes display text when user changes route', () => {
+    const { getByRole } = render(<RouteSwitch />)
+    const link = screen.getByRole('link', {name: 'Shop'});
+
+    const initialText = getByRole('heading', { level: 2 });
+    userEvent.click(link);
+    const finalText = screen.getByRole('heading', { level: 2});
+
+    expect(initialText.textContent).toBe('Home')
+    expect(finalText.textContent).toBe('Shop')
   })
 })
