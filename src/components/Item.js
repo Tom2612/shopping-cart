@@ -2,11 +2,12 @@ import React from 'react';
 import '../styles/Item.css';
 
 export default function Item(props) {
+    const { name, price } = props;
     return(
         <div className='item--container'>
-            <h4 className='item--title'>Carrots</h4>
-            <h4 className='item--price'>0.8</h4>
-            <button className='add-btn' onClick={() => props.addToCart('Carrots')}>Add to cart</button>
+            <h4 className='item--name'>{name}</h4>
+            <h4 className='item--price'>{price}</h4>
+            <button className='add-btn' onClick={(e) => props.addToCart(name, price, e)}>Add to cart</button>
         </div>
     )
 }

@@ -1,4 +1,4 @@
-export default data = [
+exports.fakeData = [
     {
         name: 'Carrots',
         price: 0.7,
@@ -8,3 +8,4 @@ export default data = [
         price: 0.6
     }
 ]
+// export default fakeData;

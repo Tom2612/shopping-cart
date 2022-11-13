@@ -5,7 +5,10 @@ export default function Shop(props) {
     return (
       <div>
         <h2>Shop</h2>
-        <Item addToCart={props.addToCart}/>
+        {props.fakeData.map(item => {
+          return <Item name={item.name} price={item.price} addToCart={props.addToCart} />
+          })
+        }
       </div>
     );
   }

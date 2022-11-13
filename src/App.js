@@ -4,13 +4,15 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import './styles/style.css';
 import Home from './components/Home';
 import Shop from './components/Shop';
+import {fakeData } from './utils/Data';
 
 function App() {
   const [cart, setCart] = useState([]);
+  
 
-  const addToCart = (item) => {
+  const addToCart = (name, price, e) => {
     setCart((prev) => {
-      return [...prev, item]
+      return [...prev, {name: name, price: price }]
     });
     console.log(cart);
   }
@@ -28,7 +30,7 @@ function App() {
       <Routes>
         <Route index element={<Home />} />
         <Route path='home' element={<Home />} />
-        <Route path='shop' element={<Shop addToCart={addToCart} />} />
+        <Route path='shop' element={<Shop fakeData={fakeData} addToCart={addToCart} />} />
         <Route path='*' element={<p>Woops, nothing here!</p>} />
       </Routes>
     </Router>
