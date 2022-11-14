@@ -7,15 +7,33 @@ import Shop from './components/Shop';
 import {fakeData } from './utils/Data';
 
 function App() {
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState([{name: 'Carrots', price: 0.7, quantity: 3 }]);
   
 
   const addToCart = (name, price, e) => {
     setCart((prev) => {
-      return [...prev, {name: name, price: price }]
+      return [...prev, {name: name, price: price, quantity: 1 }]
     });
-    console.log(cart);
-  }
+  };
+  
+  //This isn't sticking and cart is becoming undefined...
+  const increment = (name) => {
+    console.log('cart before', cart)
+    setCart((prev) => {
+      prev.map(item => {
+        if (item.name === name) {
+          console.log('found item', item.quantity)
+          let newValue = item.quantity + 1;
+          return { ...item, quantity: newValue};
+        } else {
+          console.log('not in basket!')
+          return item
+        };
+      });
+      console.log('cart here', cart)
+    });
+    console.log('cart here2', cart)
+  };
 
   return (
     <Router>
@@ -24,13 +42,17 @@ function App() {
         <Link to='/home' className="nav--link">Home</Link>
         <Link to='/shop' className="nav--link">Shop</Link>
       </nav>
-      <div className='cart--info'>
-          <p>Cart ({cart.length} item)</p>
-      </div>
+      {cart.length > 0 && <div className='cart--info'>
+            <p>Cart ({cart.length} item)</p>
+            <p>{cart[0].name}</p>
+            <p>{cart[0].price}</p>
+            <p>{cart[0].quantity}</p>
+        </div>
+      }
       <Routes>
         <Route index element={<Home />} />
         <Route path='home' element={<Home />} />
-        <Route path='shop' element={<Shop fakeData={fakeData} addToCart={addToCart} />} />
+        <Route path='shop' element={<Shop fakeData={fakeData} addToCart={addToCart} increment={increment} />} />
         <Route path='*' element={<p>Woops, nothing here!</p>} />
       </Routes>
     </Router>

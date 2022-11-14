@@ -8,6 +8,7 @@ export default function Item(props) {
             <h4 className='item--name'>{name}</h4>
             <h4 className='item--price'>{price}</h4>
             <button className='add-btn' onClick={(e) => props.addToCart(name, price, e)}>Add to cart</button>
+            <button onClick={() => props.increment(name)}>+1</button>
         </div>
     )
 }

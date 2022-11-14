@@ -6,7 +6,7 @@ export default function Shop(props) {
       <div>
         <h2>Shop</h2>
         {props.fakeData.map(item => {
-          return <Item name={item.name} price={item.price} addToCart={props.addToCart} />
+          return <Item name={item.name} price={item.price} addToCart={props.addToCart} increment={props.increment} />
           })
         }
       </div>
