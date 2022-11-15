@@ -16,23 +16,20 @@ function App() {
     });
   };
   
-  //This isn't sticking and cart is becoming undefined...
   const increment = (name) => {
-    console.log('cart before', cart)
+    //This on works below
+
+    // const exists = cart.find((x) => x.name === name);
+    // if (exists) {
+    //   setCart(cart.map(item => item.name === name ? {...exists, quantity: exists.quantity + 1 } : item));
+    // } else {
+    //   setCart([...cart])
+    // }
+
+    //This one also works now
     setCart((prev) => {
-      prev.map(item => {
-        if (item.name === name) {
-          console.log('found item', item.quantity)
-          let newValue = item.quantity + 1;
-          return { ...item, quantity: newValue};
-        } else {
-          console.log('not in basket!')
-          return item
-        };
-      });
-      console.log('cart here', cart)
+      return prev.map(item => ( item.name === name ? {...item, quantity: item.quantity + 1 } : item ));
     });
-    console.log('cart here2', cart)
   };
 
   return (
