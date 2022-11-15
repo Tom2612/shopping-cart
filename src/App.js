@@ -9,6 +9,11 @@ import {fakeData } from './utils/Data';
 
 function App() {
   const [cart, setCart] = useState([{name: 'Carrots', price: 0.7, quantity: 3 },{name: 'Potatoes', price: 0.6, quantity: 7 }]);
+  const [total, setTotal] = useState(0);
+
+  useEffect(() => {
+    setTotal(cart.map(item => item.quantity * item.price).reduce((a, b) => a + b, 0).toFixed(2));
+  }, [cart])
 
   const addToCart = (name, price) => {
     const exists = cart.find(item => item.name === name);
@@ -61,7 +66,7 @@ function App() {
         <Link to='/home' className="nav--link">Home</Link>
         <Link to='/shop' className="nav--link">Shop</Link>
       </nav>
-      {cart.length > 0 && <Cart cart={cart} />}
+      {cart.length > 0 && <Cart cart={cart} total={total}/>}
       <Routes>
         <Route index element={<Home />} />
         <Route path='home' element={<Home />} />
