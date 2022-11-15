@@ -4,16 +4,23 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import './styles/style.css';
 import Home from './components/Home';
 import Shop from './components/Shop';
+import Cart from './components/Cart';
 import {fakeData } from './utils/Data';
 
 function App() {
   const [cart, setCart] = useState([{name: 'Carrots', price: 0.7, quantity: 3 }]);
   
 
-  const addToCart = (name, price, e) => {
-    setCart((prev) => {
-      return [...prev, {name: name, price: price, quantity: 1 }]
-    });
+  const addToCart = (name, price) => {
+    const exists = cart.find(item => item.name === name);
+    if (exists) {
+      console.log('already in basket!')
+    } else {
+      setCart((prev) => {
+        return [...prev, {name: name, price: price, quantity: 1 }]
+      });
+    }
+    console.log(cart)
   };
   
   const increment = (name) => {
@@ -39,13 +46,7 @@ function App() {
         <Link to='/home' className="nav--link">Home</Link>
         <Link to='/shop' className="nav--link">Shop</Link>
       </nav>
-      {cart.length > 0 && <div className='cart--info'>
-            <p>Cart ({cart.length} item)</p>
-            <p>{cart[0].name}</p>
-            <p>{cart[0].price}</p>
-            <p>{cart[0].quantity}</p>
-        </div>
-      }
+      {cart.length > 0 && <Cart cart={cart} />}
       <Routes>
         <Route index element={<Home />} />
         <Route path='home' element={<Home />} />
