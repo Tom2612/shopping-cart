@@ -39,6 +39,20 @@ function App() {
     });
   };
 
+  const decrement = (name) => {
+    const foundItem = cart.find(item => item.name === name);
+    if (foundItem.quantity === 1) {
+      const newCart = cart.filter(item => item !== foundItem);
+      setCart(newCart);
+    } else {
+      setCart(prev => {
+        return prev.map(item => (item.name === name ? {...item, quantity: item.quantity - 1} : item
+        ));
+      });
+    }
+    console.log(cart)
+  }
+
   return (
     <Router>
       <nav className='nav'>
@@ -50,7 +64,7 @@ function App() {
       <Routes>
         <Route index element={<Home />} />
         <Route path='home' element={<Home />} />
-        <Route path='shop' element={<Shop fakeData={fakeData} addToCart={addToCart} increment={increment} />} />
+        <Route path='shop' element={<Shop fakeData={fakeData} addToCart={addToCart} increment={increment} decrement={decrement}/>} />
         <Route path='*' element={<p>Woops, nothing here!</p>} />
       </Routes>
     </Router>
