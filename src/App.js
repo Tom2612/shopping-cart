@@ -8,8 +8,7 @@ import Cart from './components/Cart';
 import {fakeData } from './utils/Data';
 
 function App() {
-  const [cart, setCart] = useState([{name: 'Carrots', price: 0.7, quantity: 3 }]);
-  
+  const [cart, setCart] = useState([{name: 'Carrots', price: 0.7, quantity: 3 },{name: 'Potatoes', price: 0.6, quantity: 7 }]);
 
   const addToCart = (name, price) => {
     const exists = cart.find(item => item.name === name);
@@ -41,7 +40,10 @@ function App() {
 
   const decrement = (name) => {
     const foundItem = cart.find(item => item.name === name);
-    if (foundItem.quantity === 1) {
+    if (!foundItem){
+      console.log('no such item');
+      return;
+    } else if (foundItem.quantity === 1) {
       const newCart = cart.filter(item => item !== foundItem);
       setCart(newCart);
     } else {
@@ -50,7 +52,6 @@ function App() {
         ));
       });
     }
-    console.log(cart)
   }
 
   return (
