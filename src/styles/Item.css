@@ -1,3 +1,44 @@
 .item--container {
+    max-width: 600px;
+    max-height: 100px;
     border: 1px solid black;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    align-items: center;
+}
+.information {
+    margin-left: 20px;
+}
+.qty--ctrl {
+    display: flex;
+}
+.current-qty {
+    width: 25px;
+    height: 25px;
+    border: 1px solid black;
+    border-radius: 3px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 5px;
+}
+.amount--btn {
+    font-size: 1rem;
+    color: white;
+    width: 25px;
+    height: 25px;
+    background: rgb(220, 53, 69);
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.add-btn {
+    width: 100px;
+    background-color: rgb(25, 135, 84);
+    border: none;
+    border-radius: 3px;
+    font-size: inherit;
+    color: white;
 }

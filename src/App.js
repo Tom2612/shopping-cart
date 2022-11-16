@@ -8,6 +8,7 @@ import Cart from './components/Cart';
 import {fakeData } from './utils/Data';
 
 function App() {
+  const [data, setData] = useState(fakeData)
   const [cart, setCart] = useState([{name: 'Carrots', price: 0.7, quantity: 3 },{name: 'Potatoes', price: 0.6, quantity: 7 }]);
   const [total, setTotal] = useState(0);
 
@@ -26,6 +27,12 @@ function App() {
     }
     console.log(cart)
   };
+
+  const handleChange = (name, e) => {
+    setCart((prev) => {
+      return prev.map(item => (item.name === name ? {...item, quantity: e.target.value } : item))
+    })
+  }
   
   const increment = (name) => {
     //This on works below
@@ -70,7 +77,17 @@ function App() {
       <Routes>
         <Route index element={<Home />} />
         <Route path='home' element={<Home />} />
-        <Route path='shop' element={<Shop fakeData={fakeData} addToCart={addToCart} increment={increment} decrement={decrement}/>} />
+        <Route 
+          path='shop' 
+          element={<Shop 
+            fakeData={data} 
+            addToCart={addToCart} 
+            increment={increment} 
+            decrement={decrement} 
+            cart={cart} 
+            handleChange={handleChange} 
+          />} 
+        />
         <Route path='*' element={<p>Woops, nothing here!</p>} />
       </Routes>
     </Router>
