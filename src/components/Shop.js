@@ -12,7 +12,8 @@ export default function Shop(props) {
         </div>
         <div className='list--container'>
           {props.fakeData.map(item => {
-            return <Item 
+            return <Item
+                key={item.name}
                 name={item.name} 
                 price={item.price} 
                 addToCart={props.addToCart} 

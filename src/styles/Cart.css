@@ -5,14 +5,6 @@
 .cart--title{
     font-weight: 400;
 }
-.cart--detail {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
-}
-.cart--detail p{
-    margin-right: 100px;
-}
 .cart--title--container{
     display: grid;
     grid-template-columns: 1fr 1fr;

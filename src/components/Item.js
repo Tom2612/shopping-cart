@@ -3,7 +3,7 @@ import '../styles/Item.css';
 
 export default function Item(props) {
     const { name, price } = props;
-    const { cart, handleChange } = props;
+    const { cart } = props;
 
     function buttons(name) {
         const currentItems = props.cart.map(item => item.name);

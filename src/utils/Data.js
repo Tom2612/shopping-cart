@@ -32,4 +32,3 @@ exports.fakeData = [
         price: 1.3
     }
 ]
-// export default fakeData;
