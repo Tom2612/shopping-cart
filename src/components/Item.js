@@ -24,14 +24,14 @@ export default function Item(props) {
         <div className='item--container'>
             <div className='information'>
                 <h4 className='item--name'>{name}</h4>
-                <h4 className='item--price'>Price: {price}</h4>
+                <h4 className='item--price'>£{price}</h4>
             </div>
             <div className='btns'>
                 {buttons(name) ?
                     (<div className='qty--ctrl'>
-                        <button className='amount--btn' onClick={() => props.decrement(name)}>-1</button>
+                        <button className='amount--btn' onClick={() => props.decrement(name)}>-</button>
                         <p className='current-qty'>{getQuantity(name)}</p>
-                        <button className='amount--btn' onClick={() => props.increment(name)}>+1</button>
+                        <button className='amount--btn' onClick={() => props.increment(name)}>+</button>
                     </div>)                  
                 :
                     <button className='add-btn' onClick={() => props.addToCart(name, price)}>Add to cart</button> 

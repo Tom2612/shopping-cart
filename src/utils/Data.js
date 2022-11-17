@@ -16,20 +16,20 @@ exports.fakeData = [
         price: 2.6
     },
     {
-        name: 'Carrots',
-        price: 0.7,
+        name: 'Brocolli',
+        price: 0.8,
     },
     {
-        name: 'Potatoes',
-        price: 0.6
+        name: 'Peppers',
+        price: 0.5
     },
     {
-        name: 'Rice',
+        name: 'Pasta',
+        price: 1.0
+    },
+    {
+        name: 'Tomatoes',
         price: 1.3
-    },
-    {
-        name: 'Tea',
-        price: 2.6
     }
 ]
 // export default fakeData;

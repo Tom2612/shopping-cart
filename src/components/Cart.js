@@ -9,7 +9,7 @@ export default function Cart(props) {
                 <p className='cart--subtotal'>Sub-total: {props.total}</p>
             </div>
             <div className='cart--detail'>
-            {props.cart.map(item => {
+            {/* {props.cart.map(item => {
                 return (
                     <>
                         <p className='cart--name'>{item.name}</p>
@@ -17,7 +17,7 @@ export default function Cart(props) {
                     </>
                 )
                 
-            })}
+            })} */}
             </div>
         </div>
     )
