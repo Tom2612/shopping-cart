@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import './styles/style.css';
 import Home from './components/Home';
 import Shop from './components/Shop';
-import Cart from './components/Cart';
 import {fakeData } from './utils/Data';
 
 function App() {
