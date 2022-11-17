@@ -8,7 +8,7 @@ export default function Shop(props) {
       <div className='shop--container'>
         <h2>Shop</h2>
         <div className="cart--container">
-          {cart.length > 0 && <Cart cart={cart} total={total}/>}
+          {cart.length > 0 ? <Cart cart={cart} total={total}/> : <h3 className='cart--title'>Cart (0 Items)</h3>}
         </div>
         <div className='list--container'>
           {props.fakeData.map(item => {
