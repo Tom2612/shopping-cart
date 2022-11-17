@@ -1,14 +1,27 @@
 .item--container {
-    max-width: 600px;
-    max-height: 100px;
+    width: 200px;
+    height: 250px;
     border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: ;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
-    align-items: center;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 3fr 1fr;
+    justify-items: center;
+    text-align: center;
 }
 .information {
     margin-left: 20px;
+    grid-row: 2;
+}
+.item--name {
+    font-size: 1.2rem;
+}
+.item--price{
+    font-size: 0.9rem;
+}
+.btns {
+    grid-row: 3;
 }
 .qty--ctrl {
     display: flex;

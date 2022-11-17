@@ -73,7 +73,7 @@ function App() {
         <Link to='/home' className="nav--link">Home</Link>
         <Link to='/shop' className="nav--link">Shop</Link>
       </nav>
-      {cart.length > 0 && <Cart cart={cart} total={total}/>}
+      {/* {cart.length > 0 && <Cart cart={cart} total={total}/>} */}
       <Routes>
         <Route index element={<Home />} />
         <Route path='home' element={<Home />} />
@@ -86,6 +86,7 @@ function App() {
             decrement={decrement} 
             cart={cart} 
             handleChange={handleChange} 
+            total={total}
           />} 
         />
         <Route path='*' element={<p>Woops, nothing here!</p>} />

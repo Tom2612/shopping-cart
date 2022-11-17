@@ -1,0 +1,20 @@
+.shop--container {
+    margin: 1rem;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 100px auto;
+}
+.cart--container {
+    grid-column: 5 / 7;
+    grid-row: 1 / 2;
+}
+.list--container {
+    width: 100%;
+    grid-column: 2 / 6;
+    grid-row: 2;
+    gap: 1rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    justify-items: center;
+}

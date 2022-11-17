@@ -26,15 +26,17 @@ export default function Item(props) {
                 <h4 className='item--name'>{name}</h4>
                 <h4 className='item--price'>Price: {price}</h4>
             </div>
-            {buttons(name) ?
-                (<div className='qty--ctrl'>
-                    <button className='amount--btn' onClick={() => props.decrement(name)}>-1</button>
-                    <p className='current-qty'>{getQuantity(name)}</p>
-                    <button className='amount--btn' onClick={() => props.increment(name)}>+1</button>
-                </div>)                  
-            :
-                <button className='add-btn' onClick={() => props.addToCart(name, price)}>Add to cart</button> 
-            }            
+            <div className='btns'>
+                {buttons(name) ?
+                    (<div className='qty--ctrl'>
+                        <button className='amount--btn' onClick={() => props.decrement(name)}>-1</button>
+                        <p className='current-qty'>{getQuantity(name)}</p>
+                        <button className='amount--btn' onClick={() => props.increment(name)}>+1</button>
+                    </div>)                  
+                :
+                    <button className='add-btn' onClick={() => props.addToCart(name, price)}>Add to cart</button> 
+                }   
+            </div>         
         </div>
     )
 }
