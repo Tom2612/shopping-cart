@@ -2,42 +2,44 @@ exports.fakeData = [
     {
         name: 'Frankenstein',
         author: 'Mary Shelley',
-        price: 0.7,
+        price: 7.99,
+        img: '../pictures/frankenstein'
     },
     {
         name: '1984',
         author: 'George Orwell',
-        price: 0.6
+        price: 8.99,
+        img: '../pictures/1984.png'
     },
     {
         name: 'Dune',
         author: 'Frank Herbert',
-        price: 1.3
+        price: 8.99
     },
     {
         name: 'The Stand',
         author: 'Stephen King',
-        price: 2.6
+        price: 8.99
     },
     {
         name: 'Journey to the Center of the Earth',
         author: 'Jules Verne',
-        price: 0.8,
+        price: 6.99,
     },
     {
         name: 'The War of the Worlds',
         author: 'H.G. Wells',
-        price: 0.5
+        price: 4.99
     },
     {
         name: 'The Time Machine',
         author: 'H.G. Wells',
-        price: 1.0
+        price: 5.00
     },
     {
         name: 'Fahrenheit 451',
         author: 'Ray Bradbury',
-        price: 1.3
+        price: 7.99
     },
     {
         name: 'Do Androids Dream of Electric Sheep?',
@@ -45,7 +47,7 @@ exports.fakeData = [
         price: 7.99
     },
     {
-    name: 'The Handmaid\'s Tale',
+        name: 'The Handmaid\'s Tale',
         author: 'Margaret Atwood',
         pride: 6.99
     },
@@ -77,12 +79,12 @@ exports.fakeData = [
     {
         name: '2001: A Space Odyssey',
         author: 'Arthur C. Clarke',
-        price: 9.99
+        price: 7.99
     }, 
     {
         name: 'Watchmen',
         author: 'Alan moore and David Gibbons',
-        price: 10.99
+        price: 9.99
     },
     {
         name: 'Jurassic Park',
