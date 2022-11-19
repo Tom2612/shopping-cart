@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/Item.css';
 
 export default function Item(props) {
-    const { name, price } = props;
+    const { name, price, img } = props;
     const { cart } = props;
 
     function buttons(name) {
@@ -24,6 +24,7 @@ export default function Item(props) {
         <div className='item--container'>
             <div className='information'>
                 <h4 className='item--name'>{name}</h4>
+                <img src={img} />
                 <h4 className='item--price'>£{price}</h4>
             </div>
             <div className='btns'>

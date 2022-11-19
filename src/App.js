@@ -8,7 +8,7 @@ import {fakeData } from './utils/Data';
 
 function App() {
   const [data, setData] = useState(fakeData)
-  const [cart, setCart] = useState([{name: 'Carrots', price: 0.7, quantity: 3 },{name: 'Potatoes', price: 0.6, quantity: 7 }]);
+  const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
 
   useEffect(() => {
@@ -24,7 +24,6 @@ function App() {
         return [...prev, {name: name, price: price, quantity: 1 }]
       });
     }
-    console.log(cart)
   };
 
   const handleChange = (name, e) => {

@@ -15,7 +15,8 @@ export default function Shop(props) {
             return <Item
                 key={item.name}
                 name={item.name} 
-                price={item.price} 
+                price={item.price}
+                img={item.img}
                 addToCart={props.addToCart} 
                 increment={props.increment} 
                 decrement={props.decrement} 
