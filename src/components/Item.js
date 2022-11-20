@@ -1,7 +1,6 @@
 import React from 'react';
 import '../styles/Item.css';
 import pictureSelector from '../utils/pictureSelector';
-import picture from '../pictures/Dune.png';
 
 export default function Item(props) {
     const { name, price, author } = props;
