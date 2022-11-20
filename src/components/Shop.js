@@ -6,7 +6,7 @@ export default function Shop(props) {
   const { cart, total } = props;
     return (
       <div className='shop--container'>
-        <h2>Shop</h2>
+        <h2>Browse all titles</h2>
         <div className="cart--container">
           {cart.length > 0 ? <Cart cart={cart} total={total}/> : <h3 className='cart--title'>Cart (0 Items)</h3>}
         </div>
@@ -16,6 +16,7 @@ export default function Shop(props) {
                 key={item.name}
                 name={item.name} 
                 price={item.price}
+                author={item.author}
                 img={item.img}
                 addToCart={props.addToCart} 
                 increment={props.increment} 

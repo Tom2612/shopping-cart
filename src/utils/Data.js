@@ -3,7 +3,7 @@ exports.fakeData = [
         name: 'Frankenstein',
         author: 'Mary Shelley',
         price: 7.99,
-        img: '../pictures/frankenstein'
+        img: '../pictures/frankenstein.png'
     },
     {
         name: '1984',
