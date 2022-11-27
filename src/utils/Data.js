@@ -39,7 +39,7 @@ exports.fakeData = [
         name: 'The Time Machine',
         author: 'H.G. Wells',
         price: 5.00,
-        img: '../pictures/Time_Machine.png'
+        img: '../pictures/TimeMachine.png'
     },
     {
         name: 'Fahrenheit 451',
@@ -74,22 +74,26 @@ exports.fakeData = [
     {
         name: 'Ender\'s Game',
         author: 'Orson Scott Guard',
-        price: 5.99
+        price: 5.99,
+        img: '../pictures/endersgame.png'
     },
     {
         name: 'Brave New World',
         author: 'Aldous Huxley',
-        price: 5.50
+        price: 5.50,
+        img: '../pictures/bravenewworld.png'
     },
     {
         name: 'I, Robot',
         author: 'Isaac Asimov',
-        price: 6.50
+        price: 6.50,
+        img: '../pictures/irobot.png'
     },
     {
         name: '2001: A Space Odyssey',
         author: 'Arthur C. Clarke',
-        price: 7.99
+        price: 7.99,
+        img: '../pictures/2001.png'
     }, 
     {
         name: 'Watchmen',
@@ -100,16 +104,19 @@ exports.fakeData = [
     {
         name: 'Jurassic Park',
         author: 'Michael Crichton',
-        price: 6.99
+        price: 6.99,
+        img: '../pictures/jurassicpark.png'
     },
     {
         name: 'Slaughterhouse-five',
         author: 'Kurt Vonnegut',
-        price: 2.99
+        price: 2.99,
+        img: '../pictures/slaughter.png'
     },
     {
         name: 'Neuromancer',
         author: 'William Gibson',
-        price: 5.99
+        price: 5.99,
+        img: '../pictures/neuromancer.png'
     }
 ]

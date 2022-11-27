@@ -8,10 +8,18 @@ import hitchhikers from '../pictures/Hitchhikers Guide.png';
 import hyperion from '../pictures/Hyperion.png';
 import journey from '../pictures/JourneytotheCenter.png';
 import theStand from '../pictures/The_Stand.png';
-import timeMachine from '../pictures/Time_Machine.png';
+import timeMachine from '../pictures/TimeMachine.png';
 import warWorlds from '../pictures/War_of_the_Worlds.png';
 import watchmen from '../pictures/Watchmen.png';
-import noImage from '../pictures/noImage.png'
+import s2001 from '../pictures/2001.png';
+import bravenewworld from '../pictures/bravenewworld.png';
+import endersgame from '../pictures/endersgame.png';
+import irobot from '../pictures/irobot.png';
+import jurassicpark from '../pictures/jurassicpark.png';
+import neuromancer from '../pictures/neuromancer.png';
+import slaughter from '../pictures/slaughter.png';
+import noImage from '../pictures/noImage.png';
+
 
 export default function pictureSelector(name) {
     if (name === 'Frankenstein') {
@@ -40,5 +48,19 @@ export default function pictureSelector(name) {
         return warWorlds;
     } else if (name === 'Watchmen') {
         return watchmen;
-    } else return noImage;
+    } else if (name === '2001: A Space Odyssey'){
+        return s2001;
+    }else if (name==='Brave New World') {
+        return bravenewworld;
+    } else if (name === 'Ender\'s Game') {
+        return endersgame;
+    } else if (name === 'I, Robot') {
+        return irobot;
+    } else if (name === 'Jurassic Park') {
+        return jurassicpark;
+    } else if (name === 'Neuromancer') {
+        return neuromancer;
+    } else if (name === 'Slaughterhouse-five') {
+        return slaughter;
+    } else return noImage
 }

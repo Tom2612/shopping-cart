@@ -20,7 +20,7 @@
     max-width: 1500px;
     grid-column: 2 / 6;
     grid-row: 2;
-    gap: 1rem;
+    gap: 2rem;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: auto;
