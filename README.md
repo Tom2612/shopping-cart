@@ -16,4 +16,12 @@ I wanted to get the bare bones of a working cart before styling anything. I went
 
 Ultimately, I have a firm grasp on useState, useEffect, Router and some very basic testing principles for React apps, however another few more projects written where I force myself to TDD is still needed at this point.
 
-On reflection, I chose food because it's the obvious choice, however I want to change this and incorporate pictures too. I will hopefully continue to develop this project further.
+## New features 1
+
+Added a new features branch to work on changing the products to the top 20 sci-fi books. Had a small issue deploying it to gh-pages as the index route wasn't showing as home. Fixed this using HashRoute instead of BrowserRoute. 
+
+New features I want to add now: 
+
+- Dedicated cart overlay where you can see what products you've added and adjust quantities.
+- More routes for different book genres.
+- Mobile design.
