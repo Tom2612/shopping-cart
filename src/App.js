@@ -17,10 +17,7 @@ function App() {
   }, [cart])
 
   useEffect(() => {
-    setQty(cart.map(item => {
-          return item.quantity;
-      }))
-
+    setQty(cart.map(item => item.quantity).reduce((a, b) => a + b, 0));
   }, [cart])
 
   const addToCart = (name, price) => {
