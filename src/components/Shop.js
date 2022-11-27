@@ -9,7 +9,7 @@ export default function Shop(props) {
         <div className='shop--info'>
           <h2>Browse all titles</h2>
           <div>
-            {cart.length > 0 ? <Cart cart={cart} total={total}/> : <h3 className='cart--container cart--title'>Cart (0 Items)</h3>}
+            {cart.length > 0 ? <Cart cart={cart} total={total} qty={props.qty}/> : <h3 className='cart--container cart--title'>Cart (0 Items)</h3>}
           </div>
         </div>
         <div className='list--container'>

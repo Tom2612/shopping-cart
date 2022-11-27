@@ -10,9 +10,17 @@ function App() {
   const [data, setData] = useState(fakeData)
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
+  const [qty, setQty] = useState([])
 
   useEffect(() => {
     setTotal(cart.map(item => item.quantity * item.price).reduce((a, b) => a + b, 0).toFixed(2));
+  }, [cart])
+
+  useEffect(() => {
+    setQty(cart.map(item => {
+          return item.quantity;
+      }))
+
   }, [cart])
 
   const addToCart = (name, price) => {
@@ -84,6 +92,7 @@ function App() {
             cart={cart} 
             handleChange={handleChange} 
             total={total}
+            qty={qty}
           />} 
         />
         <Route path='*' element={<p>Woops, nothing here!</p>} />
