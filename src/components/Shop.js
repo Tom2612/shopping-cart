@@ -6,9 +6,11 @@ export default function Shop(props) {
   const { cart, total } = props;
     return (
       <div className='shop--container'>
-        <h2>Browse all titles</h2>
-        <div className="cart--container">
-          {cart.length > 0 ? <Cart cart={cart} total={total}/> : <h3 className='cart--title'>Cart (0 Items)</h3>}
+        <div className='shop--info'>
+          <h2>Browse all titles</h2>
+          <div>
+            {cart.length > 0 ? <Cart cart={cart} total={total}/> : <h3 className='cart--container cart--title'>Cart (0 Items)</h3>}
+          </div>
         </div>
         <div className='list--container'>
           {props.fakeData.map(item => {

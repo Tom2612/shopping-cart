@@ -1,22 +1,23 @@
 .shop--container {
-    margin: 1rem;
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: 100px auto;
+    width: 100%;
+    background-color: rgb(221, 221, 221);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.shop--info {
+    width: 100%;
+    margin: 2rem 0;
+    display: flex;
+    justify-content: space-between;
 }
 .shop--container h2 {
-    align-self: center;
-    justify-self: center;
+    margin-left: 6rem;
     font-weight: 400;
 }
-.cart--container {
-    grid-column: 5 / 7;
-    grid-row: 1 / 2;
-    justify-self: center;
-    align-self: center;
-}
 .list--container {
-    max-width: 1000px;
+    margin: 0 6rem;
+    max-width: 1500px;
     grid-column: 2 / 6;
     grid-row: 2;
     gap: 1rem;

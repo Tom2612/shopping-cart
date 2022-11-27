@@ -8,7 +8,8 @@
 .cart--title--container{
     display: grid;
     grid-template-columns: 1fr 1fr;
+    align-items: center;
 }
 .cart--subtotal{
-    color: rgb(155, 155, 155);
+    color: rgb(77, 77, 77);
 }
