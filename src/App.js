@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, Outlet } from "react-router-dom";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, HashRouter } from "react-router-dom";
 import './styles/style.css';
 import Home from './components/Home';
 import Shop from './components/Shop';
@@ -73,7 +73,7 @@ function App() {
   }
 
   return (
-    <Router>
+    <HashRouter>
       <nav className='nav'>
         <h1 className="nav--title">Sci-fi Book Shop</h1>
         <Link to='/home' className="nav--link">Home</Link>
@@ -97,7 +97,7 @@ function App() {
         />
         <Route path='*' element={<p>Woops, nothing here!</p>} />
       </Routes>
-    </Router>
+    </HashRouter>
   );
 }
 
