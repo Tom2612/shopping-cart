@@ -1,0 +1,34 @@
+{
+  "files": {
+    "main.css": "/shopping-cart/static/css/main.3e4a3ac2.css",
+    "main.js": "/shopping-cart/static/js/main.abb2fe21.js",
+    "static/media/Hyperion.png": "/shopping-cart/static/media/Hyperion.3ad6088312ecdf1c0d52.png",
+    "static/media/slaughter.png": "/shopping-cart/static/media/slaughter.caf1f1211abdfe9b6949.png",
+    "static/media/JourneytotheCenter.png": "/shopping-cart/static/media/JourneytotheCenter.a475168ecc9e1e58fb0f.png",
+    "static/media/frankenstein.png": "/shopping-cart/static/media/frankenstein.358a059b4b6f346f1ab9.png",
+    "static/media/bravenewworld.png": "/shopping-cart/static/media/bravenewworld.949bb1f820e4b818a9c9.png",
+    "static/media/The_Stand.png": "/shopping-cart/static/media/The_Stand.0a8550977fc70249342b.png",
+    "static/media/jurassicpark.png": "/shopping-cart/static/media/jurassicpark.2f17d5d533c99c0f7051.png",
+    "static/media/DADOES.png": "/shopping-cart/static/media/DADOES.0897601dfd65533aefb2.png",
+    "static/media/War_of_the_Worlds.png": "/shopping-cart/static/media/War_of_the_Worlds.441ac9abc36efbc9b81d.png",
+    "static/media/TimeMachine.png": "/shopping-cart/static/media/TimeMachine.6afd0c993224d17d1fea.png",
+    "static/media/Fahrenheit 451.png": "/shopping-cart/static/media/Fahrenheit 451.1b2c851a7f680439a81b.png",
+    "static/media/2001.png": "/shopping-cart/static/media/2001.80ed66035e74802c7206.png",
+    "static/media/endersgame.png": "/shopping-cart/static/media/endersgame.4d3036b987d35890cf4a.png",
+    "static/media/irobot.png": "/shopping-cart/static/media/irobot.9e5dfa3bdb566b803332.png",
+    "static/media/Hitchhikers Guide.png": "/shopping-cart/static/media/Hitchhikers Guide.2e63ff4ba4f4aa741b78.png",
+    "static/media/neuromancer.png": "/shopping-cart/static/media/neuromancer.8e6866e88dfaadd94805.png",
+    "static/media/Dune.png": "/shopping-cart/static/media/Dune.b8d7a5f699f00a8fd67a.png",
+    "static/media/Watchmen.png": "/shopping-cart/static/media/Watchmen.03ac0690cc302898dfd1.png",
+    "static/media/1984.png": "/shopping-cart/static/media/1984.f04f37a9d3732cc10ea0.png",
+    "static/media/Handmaids Tale.png": "/shopping-cart/static/media/Handmaids Tale.bc85a85c0ee555c414f8.png",
+    "static/media/noImage.png": "/shopping-cart/static/media/noImage.c47ec7c145d4b10bc1d8.png",
+    "index.html": "/shopping-cart/index.html",
+    "main.3e4a3ac2.css.map": "/shopping-cart/static/css/main.3e4a3ac2.css.map",
+    "main.abb2fe21.js.map": "/shopping-cart/static/js/main.abb2fe21.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3e4a3ac2.css",
+    "static/js/main.abb2fe21.js"
+  ]
+}
