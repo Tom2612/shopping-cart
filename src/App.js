@@ -5,6 +5,7 @@ import './styles/style.css';
 import Home from './components/Home';
 import Shop from './components/Shop';
 import {fakeData } from './utils/Data';
+import UserCart from './components/UserCart';
 
 function App() {
   const [data, setData] = useState(fakeData)
@@ -75,6 +76,7 @@ function App() {
         <h1 className="nav--title">Sci-fi Book Shop</h1>
         <Link to='/home' className="nav--link">Home</Link>
         <Link to='/shop' className="nav--link">Shop</Link>
+        <Link to='/cart' className="nav--link">My Cart</Link>
       </nav>
       <Routes>
         <Route index element={<Home />} />
@@ -92,6 +94,7 @@ function App() {
             qty={qty}
           />} 
         />
+        <Route path='cart' element={<UserCart />} />
         <Route path='*' element={<p>Woops, nothing here!</p>} />
       </Routes>
     </HashRouter>
