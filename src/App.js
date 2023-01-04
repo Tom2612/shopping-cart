@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Route, Routes, HashRouter } from "react-router-dom";
 import './styles/style.css';
 import Home from './components/Home';
+import Navbar from './components/Navbar';
 import Shop from './components/Shop';
 import UserCart from './components/UserCart';
 import SignUp from './components/SignUp';
@@ -13,13 +14,7 @@ function App() {
   return (
     <HashRouter>
       <AuthProvider>
-        <nav className='nav'>
-          <h1 className="nav--title">Sci-fi Book Shop</h1>
-          <Link to='/home' className="nav--link">Home</Link>
-          <Link to='/shop' className="nav--link">Shop</Link>
-          <Link to='/signup' className="nav--link">Sign Up</Link>
-          <Link to='/cart' className="nav--link">My Cart</Link>
-        </nav>
+        <Navbar />
         <Routes>
           <Route index element={<Home />} />
           <Route path='home' element={<Home />} />
