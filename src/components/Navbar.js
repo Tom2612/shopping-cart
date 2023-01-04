@@ -1,13 +1,22 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 
 export default function Navbar() {
-    const { currentUser } = useAuth();
+    const { currentUser, logout } = useAuth();
+    const [error, setError] = useState('');
+    const navigate = useNavigate();
 
-    function handleLogout() {
-        console.log('Logged out')
-    }
+    async function handleLogout() {
+        setError('');
+        try {
+            await logout();
+            navigate('/home');
+        } catch(e) {
+            setError('Failed to log out');
+            console.log(e);
+        }
+    };
 
   return (
     <nav className='nav'>
