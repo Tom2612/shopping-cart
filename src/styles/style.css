@@ -32,4 +32,5 @@ body {
     border: none;
     background: none;
     margin-left: auto;
+    cursor: pointer;
 }
