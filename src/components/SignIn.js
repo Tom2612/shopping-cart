@@ -8,28 +8,24 @@ export default function SignIn() {
   const passwordRef = useRef();
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-//   const { signup } = useAuth();
+  const { signin } = useAuth();
   const navigate = useNavigate();
 
   async function handleSubmit(e) {
-    // e.preventDefault();
+    e.preventDefault();
 
-    // if (passwordConfirmRef.current.value !== passwordRef.current.value) {
-    //   return setError('Passwords do not match!');
-    // }
+    try {
+      setError('');
+      setLoading(true);
+      await signin(emailRef.current.value, passwordRef.current.value);
+      console.log('signed in!');
+      navigate('/home')
+    } catch(e) {
+        console.log('Failed to sign in', e.message);
+    }
+    setLoading(false);
+  };
 
-    // try {
-    //   setError('');
-    //   setLoading(true);
-    //   await signup(emailRef.current.value, passwordRef.current.value);
-    //   console.log('signed up!');
-    //   navigate('/home')
-    // } catch(e) {
-    //     console.log('Failed to sign up', e.message);
-    // }
-    // setLoading(false);
-    
-  }
   return (
     <div>
       <h2>Sign In</h2>
