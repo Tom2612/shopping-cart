@@ -42,7 +42,7 @@ export default function pictureSelector(name) {
         return journey;
     } else if (name === 'The Stand') {
         return theStand;
-    } else if (name === ' The Time Machine') {
+    } else if (name === 'The Time Machine') {
         return timeMachine;
     } else if (name === 'The War of the Worlds') {
         return warWorlds;
