@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, Outlet } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { BrowserRouter as Router, Route, Routes, HashRouter } from "react-router-dom";
 import './styles/style.css';
 import Home from './components/Home';
@@ -7,13 +7,14 @@ import Shop from './components/Shop';
 import {fakeData } from './utils/Data';
 import UserCart from './components/UserCart';
 import SignUp from './components/SignUp';
-import { AuthProvider } from './contexts/AuthContext';
+import { AuthProvider, useAuth } from './contexts/AuthContext';
 
 function App() {
   const [data, setData] = useState(fakeData)
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
-  const [qty, setQty] = useState([])
+  const [qty, setQty] = useState([]);
+  // const { currentUser } = useAuth();
 
   useEffect(() => {
     setTotal(cart.map(item => item.quantity * item.price).reduce((a, b) => a + b, 0).toFixed(2));
@@ -79,7 +80,8 @@ function App() {
           <h1 className="nav--title">Sci-fi Book Shop</h1>
           <Link to='/home' className="nav--link">Home</Link>
           <Link to='/shop' className="nav--link">Shop</Link>
-          <Link to='/signup' className="nav--link">My Cart</Link>
+          <Link to='/signup' className="nav--link">Sign Up</Link>
+          <Link to='/cart' className="nav--link">My Cart</Link>
         </nav>
         <Routes>
           <Route index element={<Home />} />
