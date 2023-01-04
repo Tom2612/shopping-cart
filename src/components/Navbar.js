@@ -24,8 +24,9 @@ export default function Navbar() {
         <Link to='/home' className='nav--link'>Home</Link>
         <Link to='/shop' className='nav--link'>Shop</Link>
         {!currentUser && <Link to='/signup' className='nav--link'>Sign Up</Link> }
+        {!currentUser && <Link to='/signin' className='logging--btn nav--link'>Sign In</Link> }
         { currentUser && <Link to='/cart' className='nav--link user--active'>My Cart</Link> }
-        { currentUser && <button className='logout--btn nav--link' onClick={handleLogout}>Log Out</button> }
+        { currentUser && <button className='logging--btn nav--link' onClick={handleLogout}>Log Out</button> }
     </nav>
   )
 }

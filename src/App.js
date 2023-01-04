@@ -8,6 +8,7 @@ import Shop from './components/Shop';
 import UserCart from './components/UserCart';
 import SignUp from './components/SignUp';
 import { AuthProvider } from './contexts/AuthContext';
+import SignIn from './components/SignIn';
 
 function App() {
  
@@ -21,6 +22,7 @@ function App() {
           <Route path='/shop' element={<Shop />} />
           <Route path='/cart' element={<UserCart />} />
           <Route path='/signup' element={<SignUp />} />
+          <Route path='/signin' element={<SignIn />} />
           <Route path='*' element={<p>Woops, nothing here!</p>} />
         </Routes>
       </AuthProvider>
