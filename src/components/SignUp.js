@@ -11,8 +11,7 @@ export default function SignUp() {
     e.preventDefault();
 
     if (passwordConfirmRef.current.value !== passwordRef.current.value) {
-      setError('Passwords do not match!')
-      return;
+      return setError('Passwords do not match!');
     }
     
   }
