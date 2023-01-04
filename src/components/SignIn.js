@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function SignIn() {
 
@@ -37,6 +37,7 @@ export default function SignIn() {
         <input type='password' id='password' name='password' ref={passwordRef} required></input>
         <button type='submit'>Sign In</button>
       </form>
+      <div>Need an account? <Link to='/signup'>Sign Up</Link></div>
     </div>
   )
 }

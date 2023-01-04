@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function SignUp() {
 
@@ -44,6 +44,7 @@ export default function SignUp() {
         <input type='password' id='password-confirm' name='password-confirm' ref={passwordConfirmRef} required></input>
         <button type='submit'>Sign Up</button>
       </form>
+      <div>Already have an account? <Link to='/signin'>Sign In</Link></div>
     </div>
   )
 }
