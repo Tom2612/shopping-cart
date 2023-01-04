@@ -6,7 +6,7 @@ import Home from './components/Home';
 import Shop from './components/Shop';
 import UserCart from './components/UserCart';
 import SignUp from './components/SignUp';
-import { AuthProvider, useAuth } from './contexts/AuthContext';
+import { AuthProvider } from './contexts/AuthContext';
 
 function App() {
  

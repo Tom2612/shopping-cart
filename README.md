@@ -25,3 +25,19 @@ New features I want to add now:
 - Dedicated cart overlay where you can see what products you've added and adjust quantities.
 - More routes for different book genres.
 - Mobile design.
+- User authentication and basket storage.
+- End-to-end application.
+
+## 4/1/23
+
+Been spending the past few weeks learning how to incorporate firebase into projects, particularly authentication and user accounts. The idea will be to have users save their basket between sessions. 
+
+Most recent changes have been creating a SignUp component that allows users to sign in with email and password. This is working and linked up to firebase. 
+
+New things I am learning by doing this:
+- useContext to provide my authentication to all components rather than as props. Principles of prop drilling.
+- Setting up private routes (need to include).
+- useNavigate to automatically redirect users when signed up.
+- BaaS systems (firebase in this case).
+
+I then decided App.js didn't need to store the whole app functionality, and so I have put it in the Shop.js component. App.js now controls the routes and passing authentication down to the different components.
