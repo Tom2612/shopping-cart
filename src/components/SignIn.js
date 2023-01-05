@@ -19,25 +19,29 @@ export default function SignIn() {
       setLoading(true);
       await signin(emailRef.current.value, passwordRef.current.value);
       console.log('signed in!');
-      navigate('/home')
+      navigate('/home');
     } catch(e) {
-        console.log('Failed to sign in', e.message);
+      setError('Failed to sign in.');
     }
     setLoading(false);
   };
 
   return (
-    <div>
-      <h2>Sign In</h2>
-      { error && <h3>{error}</h3>}
-      <form onSubmit={handleSubmit}>
-        <label htmlFor='email'>Email</label>
-        <input type='email' id='email' name='email' ref={emailRef} required></input>
-        <label htmlFor='password'>Password</label>
-        <input type='password' id='password' name='password' ref={passwordRef} required></input>
-        <button type='submit'>Sign In</button>
-      </form>
-      <div>Need an account? <Link to='/signup'>Sign Up</Link></div>
+    <div className='container'>
+      <div className='card'>
+        <h2 className='card--title'>Sign In</h2>
+        { error && <h3 className='card--error'>{error}</h3>}
+        <div className='card--body'>
+          <form onSubmit={handleSubmit}>
+            <label htmlFor='email' className='form--label'>Email</label>
+            <input type='email' id='email' name='email' ref={emailRef} required className='form--input'></input>
+            <label htmlFor='password' className='form--label'>Password</label>
+            <input type='password' id='password' name='password' ref={passwordRef} required className='form--input'></input>
+            <button type='submit' className='card--btn'>Sign In</button>
+          </form>
+        </div>
+        <div>Need an account? <Link to='/signup'>Sign Up</Link></div>
+      </div>
     </div>
   )
 }

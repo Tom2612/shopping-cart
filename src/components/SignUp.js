@@ -24,26 +24,28 @@ export default function SignUp() {
       setLoading(true);
       await signup(emailRef.current.value, passwordRef.current.value);
       console.log('signed up!');
-      navigate('/home')
+      navigate('/home');
     } catch(e) {
-        console.log('Failed to sign up', e.message);
+      setError('Failed to create an account.');
     }
     setLoading(false);
-    
-  }
+  };
+
   return (
-    <div>
-      <h2>Sign Up</h2>
-      { error && <h3>{error}</h3>}
-      <form onSubmit={handleSubmit}>
-        <label htmlFor='email'>Email</label>
-        <input type='email' id='email' name='email' ref={emailRef} required></input>
-        <label htmlFor='password'>Password</label>
-        <input type='password' id='password' name='password' ref={passwordRef} required></input>
-        <label htmlFor='password-confirm'>Confirm Password</label>
-        <input type='password' id='password-confirm' name='password-confirm' ref={passwordConfirmRef} required></input>
-        <button type='submit'>Sign Up</button>
-      </form>
+    <div className='card'>
+      <h2 className='card--title'>Sign Up</h2>
+      { error && <h3 className='card--error'>{error}</h3>}
+      <div className='card--body'>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor='email' className='form--label'>Email</label>
+          <input type='email' id='email' name='email' ref={emailRef} required className='form--input'></input>
+          <label htmlFor='password' className='form--label'>Password</label>
+          <input type='password' id='password' name='password' ref={passwordRef} required className='form--input'></input>
+          <label htmlFor='password-confirm' className='form--label'>Confirm Password</label>
+          <input type='password' id='password-confirm' name='password-confirm' ref={passwordConfirmRef} required className='form--input'></input>
+          <button type='submit' className='card--btn'>Sign Up</button>
+        </form>
+      </div>
       <div>Already have an account? <Link to='/signin'>Sign In</Link></div>
     </div>
   )
