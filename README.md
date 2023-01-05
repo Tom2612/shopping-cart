@@ -41,3 +41,9 @@ New things I am learning by doing this:
 - BaaS systems (firebase in this case).
 
 I then decided App.js didn't need to store the whole app functionality, and so I have put it in the Shop.js component. App.js now controls the routes and passing authentication down to the different components.
+
+## 5/1/23
+
+Just finished adding basic user authentication. You can now signup, signin and logout. I have protected routes using a PrivateRoute component that automatically redirects you to login if a user is not present. 
+
+Need to style these components and then work can begin on adding Firestore to the project to save a user's cart and retrieve that info. next time they login.
