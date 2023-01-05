@@ -18,7 +18,6 @@ export default function SignIn() {
       setError('');
       setLoading(true);
       await signin(emailRef.current.value, passwordRef.current.value);
-      console.log('signed in!');
       navigate('/home');
     } catch(e) {
       setError('Failed to sign in.');
