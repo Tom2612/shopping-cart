@@ -4,28 +4,30 @@ import '../styles/Shop.css'
 import { useEffect, useState } from "react";
 import { fakeData } from "../utils/Data";
 import { db } from "../firebase";
-import { collection, doc, getDocs } from 'firebase/firestore';
+import { collection, getDocs } from 'firebase/firestore';
 
 export default function Shop() {
   const [data, setData] = useState(fakeData);
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
   const [qty, setQty] = useState([]);
+
+  //Products stored in firestore with IDs
   const [products, setProducts] = useState([]);
 
+  //Grabs the products in firestore and stores them in products
   useEffect(() => {
     const fetchData = async () => {
-      const newData = await getDocs(collection(db, 'products'));
-      return newData;
-    }
-    try {
-      let data2 = fetchData();
-      console.log(data2);
-    } catch(e) {
-      console.log(e)
+      const fetchData = [];
+      const querySnapshot = await getDocs(collection(db, "products"));
+      querySnapshot.forEach((doc) => {
+      fetchData.push(doc.data());
+    });
+    setProducts(fetchData);
     }
 
-  }, []);
+    fetchData();
+  }, [])
 
   useEffect(() => {
     setTotal(cart.map(item => item.quantity * item.price).reduce((a, b) => a + b, 0).toFixed(2));
