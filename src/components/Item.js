@@ -3,7 +3,7 @@ import '../styles/Item.css';
 import pictureSelector from '../utils/pictureSelector';
 
 export default function Item(props) {
-    const { name, price, author } = props;
+    const { name, price, author, img } = props;
     const { cart } = props;
 
     function buttons(name) {

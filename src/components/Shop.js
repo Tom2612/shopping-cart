@@ -2,12 +2,10 @@ import Item from "./Item";
 import Cart from "./Cart";
 import '../styles/Shop.css'
 import { useEffect, useState } from "react";
-import { fakeData } from "../utils/Data";
 import { db } from "../firebase";
 import { collection, getDocs } from 'firebase/firestore';
 
 export default function Shop() {
-  const [data, setData] = useState(fakeData);
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
   const [qty, setQty] = useState([]);
@@ -82,17 +80,18 @@ export default function Shop() {
           </div>
         </div>
         <div className='list--container'>
-          {data.map(item => {
-            return <Item
-                key={item.name}
-                name={item.name} 
-                price={item.price}
-                author={item.author}
-                img={item.img}
-                addToCart={addToCart} 
-                increment={increment} 
-                decrement={decrement} 
-                cart={cart} 
+          {
+            products.map(product => {
+              return <Item 
+                key={product.name}
+                name={product.name}
+                price={product.price}
+                author={product.author}
+                img={product.img}
+                addToCart={addToCart}
+                increment={increment}
+                decrement={decrement}
+                cart={cart}
                 handleChange={handleChange}
               />
             })
