@@ -4,11 +4,16 @@ import '../styles/Shop.css'
 import { useEffect, useState } from "react";
 import { db } from "../firebase";
 import { collection, getDocs } from 'firebase/firestore';
+import { useAuth } from "../contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 export default function Shop() {
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
   const [qty, setQty] = useState([]);
+
+  const { currentUser } = useAuth();
+  const navigate = useNavigate();
 
   //Products stored in firestore with IDs
   const [products, setProducts] = useState([]);
@@ -33,6 +38,11 @@ export default function Shop() {
   }, [cart]);
 
   const addToCart = (name, price) => {
+    //Add authentication here - no user = no add to cart
+    if (!currentUser) {
+      return navigate('/signin', {state: {previousUrl: '/shop'}});
+    }
+
     const exists = cart.find(item => item.name === name);
     if(exists) {
       return;

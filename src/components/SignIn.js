@@ -1,6 +1,6 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 export default function SignIn() {
 
@@ -11,6 +11,9 @@ export default function SignIn() {
   const { signin } = useAuth();
   const navigate = useNavigate();
 
+  //Get previous URL if redirected to login
+  const location = useLocation();
+
   async function handleSubmit(e) {
     e.preventDefault();
 
@@ -18,9 +21,10 @@ export default function SignIn() {
       setError('');
       setLoading(true);
       await signin(emailRef.current.value, passwordRef.current.value);
-      navigate('/home');
+      location.state ? navigate(location.state.previousUrl) : navigate('/home');
     } catch(e) {
       setError('Failed to sign in.');
+      console.log(e)
     }
     setLoading(false);
   };
