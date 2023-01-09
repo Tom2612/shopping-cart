@@ -47,3 +47,8 @@ I then decided App.js didn't need to store the whole app functionality, and so I
 Just finished adding basic user authentication. You can now signup, signin and logout. I have protected routes using a PrivateRoute component that automatically redirects you to login if a user is not present. 
 
 Need to style these components and then work can begin on adding Firestore to the project to save a user's cart and retrieve that info. next time they login.
+
+## 9/1/23
+
+Firestore can now save your cart if you add books, however these are forgotten if the shop reloads because the cart is set (and therefore reset) to empty. Need to first check if user has cart information stored and set cart to that or then make a new cart for the user. 
+Another problem is getting the user's cart to display on the 'my cart' page. Perhaps I'll leave this for now and just focus on getting the shop working properly, including adding correct quantities to the items so the buttons don't also reset.
