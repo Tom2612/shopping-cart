@@ -3,7 +3,7 @@ import Cart from "./Cart";
 import '../styles/Shop.css'
 import { useEffect, useState } from "react";
 import { db } from "../firebase";
-import { addDoc, collection, getDocs, setDoc, doc } from 'firebase/firestore';
+import { collection, getDocs, setDoc, doc } from 'firebase/firestore';
 import { useAuth } from "../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
 
