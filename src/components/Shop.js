@@ -18,7 +18,7 @@ export default function Shop() {
   //Products stored in firestore with IDs
   const [products, setProducts] = useState([]);
 
-  //Grabs the products in firestore and stores them in products
+  //Grabs product data from firestore and stores it in products
   useEffect(() => {
     const fetchData = async () => {
       const fetchData = [];
@@ -32,10 +32,12 @@ export default function Shop() {
     fetchData();
   }, [])
 
+  //Every time cart changes: change total and qty of cart component, then upload cart to Firestore
   useEffect(() => {
     setTotal(cart.map(item => item.quantity * item.price).reduce((a, b) => a + b, 0).toFixed(2));
     setQty(cart.map(item => item.quantity).reduce((a, b) => a + b, 0));
     uploadCart();
+
   }, [cart]);
 
   const uploadCart = async () => {
@@ -49,6 +51,7 @@ export default function Shop() {
   }
   }
 
+  //Get rid of this and just add straight to firestore without anything on client-side!
   const addToCart = (name, price) => {
     //Add authentication here - no user = no add to cart
     if (!currentUser) {
@@ -98,7 +101,7 @@ export default function Shop() {
         <div className='shop--info'>
           <h2>Browse all titles</h2>
           <div>
-            {cart.length > 0 ? <Cart cart={cart} total={total} qty={qty}/> : <h3 className='cart--container cart--title'>Cart (0 Items)</h3>}
+            <Cart cart={cart} total={total} qty={qty}/>
           </div>
         </div>
         <div className='list--container'>
