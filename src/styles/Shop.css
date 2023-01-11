@@ -27,7 +27,7 @@
     justify-items: center;
 }
 .cart--item {
-
+    border: 1px solid black;
 }
 .cart--item--title {
 

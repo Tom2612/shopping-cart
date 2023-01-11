@@ -3,7 +3,7 @@ import '../styles/Item.css';
 import pictureSelector from '../utils/pictureSelector';
 
 export default function Item(props) {
-    const { name, price, author, id } = props;
+    const { information } = props;
     const { cart } = props;
 
     function buttons(name) {
@@ -24,21 +24,13 @@ export default function Item(props) {
     return(
         <div className='item--container'>
             <div className='information'>
-                <h4 className='item--name'>{name}</h4>
-                <h4 className='item--author'>{author}</h4>
-                <img className='item--img' src={pictureSelector(name)} />
-                <h4 className='item--price'>£{price}</h4>
+                <h4 className='item--name'>{information.name}</h4>
+                <h4 className='item--author'>{information.author}</h4>
+                <img className='item--img' src={pictureSelector(information.name)} />
+                <h4 className='item--price'>£{information.price}</h4>
             </div>
             <div className='btns'>
-                {buttons(name) ?
-                    (<div className='qty--ctrl'>
-                        <button className='amount--btn' onClick={() => props.decrement(name)}>-</button>
-                        <p className='current-qty'>{getQuantity(name)}</p>
-                        <button className='amount--btn' onClick={() => props.increment(name)}>+</button>
-                    </div>)                  
-                :
-                    <button className='add-btn' onClick={() => props.addToCart(name, price, id)}>Add to cart</button> 
-                }   
+                <button className='add-btn' onClick={() => props.addToCart(information)}>Add to cart</button>  
             </div>         
         </div>
     )

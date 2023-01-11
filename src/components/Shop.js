@@ -50,21 +50,19 @@ export default function Shop() {
 
   }, [dataFetch]);
 
-  const addToUserCart = async (name, price, id) => {
+  const addToUserCart = async (information) => {
     //Start again here
     if (!currentUser) {
       return navigate('/signin', {state: {previousUrl: '/shop'}});
     };
 
     const userProduct = {
-      name: name,
-      price: price,
+      ...information,
       qty: 1,
-      id: id
     }
 
     try {
-      await setDoc(doc(db, `user ${currentUser.uid}`, id), userProduct);
+      await setDoc(doc(db, `user ${currentUser.uid}`, information.id), userProduct);
       setDataFetch(!dataFetch);
     } catch (e) {
       console.log(e);
@@ -113,10 +111,6 @@ export default function Shop() {
               return <Item
                 information={product} 
                 key={product.id}
-                id={product.id}
-                name={product.name}
-                price={product.price}
-                author={product.author}
                 addToCart={addToUserCart}
                 increment={increment}
                 decrement={decrement}
