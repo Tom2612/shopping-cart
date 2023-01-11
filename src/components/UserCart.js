@@ -34,8 +34,7 @@ export default function UserCart() {
 
   return (
     <div className='user-cart--container'>
-      <h1>My Cart</h1>
-      <p>{currentUser.email}</p>
+      <h1 className='user--cart--title'>My Cart</h1>
       {userCart && userCart.map(item => (
         <UserCartItem item={item} key={item.id}/>
       ))}
