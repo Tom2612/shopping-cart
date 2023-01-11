@@ -26,3 +26,12 @@
     grid-template-rows: auto;
     justify-items: center;
 }
+.cart--item {
+
+}
+.cart--item--title {
+
+}
+.cart--item--img {
+    max-width: 60px;
+}

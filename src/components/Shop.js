@@ -43,7 +43,7 @@ export default function Shop() {
           console.log('User cart', doc.data());
           arr.push(doc.data());
         });     
-        // change cart display qty and work out total? 
+        // change cart display qty and work out total?
     };
 
     getUserCart();
