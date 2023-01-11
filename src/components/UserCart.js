@@ -6,35 +6,33 @@ import { doc, getDoc } from 'firebase/firestore';
 export default function UserCart() {
   const { currentUser } = useAuth();
   const [userCart, setUserCart] = useState();
-  const [loading, setLoading] = useState(false);
   
   useEffect(() => {
-    const docSnap = async () => {
+    const getUserCart = async () => {
       const docs = await getDoc(doc(db, 'users', currentUser.uid));
-      setUserCart(docs.data().cart);
-
-      console.log(docs.data().cart)
+      setUserCart(docs.data().product);
     }
-    docSnap();
-    setLoading(true);
+
+    getUserCart();
     
   }, []);
 
-  useEffect(() => {
-    setLoading(false);
-  }, [userCart])
+//Move item controls to here
+  const increment = () => {
 
-  if(userCart === undefined) {
-    return null
+  }
+
+  const decrement = () => {
+
   }
 
   return (
     <div className='user-cart--container'>
       <h1>My Cart</h1>
       <p>{currentUser.email}</p>
-      {userCart && userCart.map(item => {
+      {userCart && userCart.map(item => (
         <p>{item.name}</p>
-      })}
+      ))}
     </div>
   )
 }
