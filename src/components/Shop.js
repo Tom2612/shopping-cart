@@ -3,7 +3,7 @@ import Cart from "./Cart";
 import '../styles/Shop.css'
 import { useEffect, useState } from "react";
 import { db } from "../firebase";
-import { collection, getDocs, setDoc, doc } from 'firebase/firestore';
+import { collection, getDocs, setDoc, doc, getDoc } from 'firebase/firestore';
 import { useAuth } from "../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
 
@@ -11,6 +11,7 @@ export default function Shop() {
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
   const [qty, setQty] = useState([]);
+  const [dataFetch, setDataFetch] = useState(false);
 
   const { currentUser } = useAuth();
   const navigate = useNavigate();
@@ -33,23 +34,21 @@ export default function Shop() {
   }, [])
 
   //Get user cart information
-  // useEffect(() => {
-  //   const getUserCart = async() => {
-  //     const cartRef = doc(db, `user ${currentUser.uid}`, currentUser.uid);
-  //     const cartSnap = await getDoc(cartRef);
+  useEffect(() => {
+    const getUserCart = async() => {
+      const arr = [];
+      const cartRef = collection(db, `user ${currentUser.uid}`);
+      const cartSnap = await getDocs(cartRef);
+        cartSnap.forEach((doc) => {
+          console.log('User cart', doc.data());
+          arr.push(doc.data());
+        });     
+        // change cart display qty and work out total? 
+    };
 
-  //     if (cartSnap.exists()) {
-  //       console.log('User has cart')
-  //       setUserHasCart(true);
-  //     } else {
-  //       console.log('User has no cart')
-  //       return;
-  //     }
-  //   };
+    getUserCart();
 
-  //   checkUserHasCart();
-
-  // }, [loading])
+  }, [dataFetch]);
 
   const addToUserCart = async (name, price, id) => {
     //Start again here
@@ -66,6 +65,7 @@ export default function Shop() {
 
     try {
       await setDoc(doc(db, `user ${currentUser.uid}`, id), userProduct);
+      setDataFetch(!dataFetch);
     } catch (e) {
       console.log(e);
     }
