@@ -3,7 +3,7 @@ import '../styles/Item.css';
 import pictureSelector from '../utils/pictureSelector';
 
 export default function Item(props) {
-    const { name, price, author, img } = props;
+    const { name, price, author, id } = props;
     const { cart } = props;
 
     function buttons(name) {
@@ -37,7 +37,7 @@ export default function Item(props) {
                         <button className='amount--btn' onClick={() => props.increment(name)}>+</button>
                     </div>)                  
                 :
-                    <button className='add-btn' onClick={() => props.addToCart(name, price)}>Add to cart</button> 
+                    <button className='add-btn' onClick={() => props.addToCart(name, price, id)}>Add to cart</button> 
                 }   
             </div>         
         </div>

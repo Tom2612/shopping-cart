@@ -3,7 +3,7 @@ import Cart from "./Cart";
 import '../styles/Shop.css'
 import { useEffect, useState } from "react";
 import { db } from "../firebase";
-import { collection, getDocs, setDoc, doc, updateDoc, arrayUnion, getDoc } from 'firebase/firestore';
+import { collection, getDocs, setDoc, doc } from 'firebase/firestore';
 import { useAuth } from "../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
 
@@ -11,8 +11,6 @@ export default function Shop() {
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
   const [qty, setQty] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [userHasCart, setUserHasCart] = useState(false);
 
   const { currentUser } = useAuth();
   const navigate = useNavigate();
@@ -23,40 +21,38 @@ export default function Shop() {
   //Grabs product data from firestore and stores it in products
   useEffect(() => {
     const fetchData = async () => {
-      setLoading(true);
       const fetchData = [];
       const querySnapshot = await getDocs(collection(db, "products"));
       querySnapshot.forEach((doc) => {
       fetchData.push({...doc.data(), id: doc.id});
     });
     setProducts(fetchData);
-    console.log(products);
-    setLoading(false);
     }
 
     fetchData();
   }, [])
 
-  useEffect(() => {
-    const checkUserHasCart = async() => {
-      const cartRef = doc(db, 'users', currentUser.uid);
-      const cartSnap = await getDoc(cartRef);
+  //Get user cart information
+  // useEffect(() => {
+  //   const getUserCart = async() => {
+  //     const cartRef = doc(db, `user ${currentUser.uid}`, currentUser.uid);
+  //     const cartSnap = await getDoc(cartRef);
 
-      if (cartSnap.exists()) {
-        console.log('User has cart')
-        setUserHasCart(true);
-      } else {
-        console.log('User has no cart')
-        return;
-      }
-    };
+  //     if (cartSnap.exists()) {
+  //       console.log('User has cart')
+  //       setUserHasCart(true);
+  //     } else {
+  //       console.log('User has no cart')
+  //       return;
+  //     }
+  //   };
 
-    checkUserHasCart();
+  //   checkUserHasCart();
 
-  }, [loading])
+  // }, [loading])
 
-  const addToUserCart = async (name, price) => {
-    setLoading(true);
+  const addToUserCart = async (name, price, id) => {
+    //Start again here
     if (!currentUser) {
       return navigate('/signin', {state: {previousUrl: '/shop'}});
     };
@@ -64,46 +60,16 @@ export default function Shop() {
     const userProduct = {
       name: name,
       price: price,
-      qty: 1
+      qty: 1,
+      id: id
     }
 
-    const docRef = doc(db, 'users', currentUser.uid);
-
-    //Check user has cart, make one if not.
-    if (!userHasCart) {
-      try { 
-        await setDoc(doc(db, 'users', currentUser.uid), userProduct);
-        setLoading(false);
-      }catch(e){
-        console.log('failed to add product');
-      }
-    } else {
-      //Check for product already in userCart, update accordingly.
-      try {
-        await updateDoc(docRef, { product: arrayUnion(userProduct) });
-        console.log('added Product!')
-      } catch(e) {
-        console.log('could not upload product', e.message);
-      }
+    try {
+      await setDoc(doc(db, `user ${currentUser.uid}`, id), userProduct);
+    } catch (e) {
+      console.log(e);
     }
   }
-
-  //Get rid of this and just add straight to firestore without anything on client-side!
-  // const addToCart = (name, price) => {
-  //   //Add authentication here - no user = no add to cart
-  //   if (!currentUser) {
-  //     return navigate('/signin', {state: {previousUrl: '/shop'}});
-  //   }
-
-  //   const exists = cart.find(item => item.name === name);
-  //   if(exists) {
-  //     return;
-  //   } else {
-  //     setCart((prev) => {
-  //       return [...prev, { name, price, quantity: 1}];
-  //     });
-  //   };
-  // };
 
   const handleChange = (name, e) => {
     setCart((prev) => {
@@ -144,12 +110,13 @@ export default function Shop() {
         <div className='list--container'>
           {
             products.map(product => {
-              return <Item 
+              return <Item
+                information={product} 
                 key={product.id}
+                id={product.id}
                 name={product.name}
                 price={product.price}
                 author={product.author}
-                // img={product.img}
                 addToCart={addToUserCart}
                 increment={increment}
                 decrement={decrement}
