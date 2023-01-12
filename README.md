@@ -52,3 +52,18 @@ Need to style these components and then work can begin on adding Firestore to th
 
 Firestore can now save your cart if you add books, however these are forgotten if the shop reloads because the cart is set (and therefore reset) to empty. Need to first check if user has cart information stored and set cart to that or then make a new cart for the user. 
 Another problem is getting the user's cart to display on the 'my cart' page. Perhaps I'll leave this for now and just focus on getting the shop working properly, including adding correct quantities to the items so the buttons don't also reset.
+
+## 11/1/23
+
+New developer woes - spent a good hour and a half trying to change Firestore structure so each user cart was a collection of product documents, rather than a document in the collection 'users'. Turns out this did not automatically update the Firestore console page so it was probably working and I just wasn't seeing those new collections being made. This took way longer than it should have!
+
+- Shop.js now sends item directly into Firestore user cart.
+- UserCart.js now reads cart information from Firestore.
+- Display UserCart and each product on 'My Cart' page.
+- Refactored and cleaned up code in Shop.js - trying to separate it into other modules.
+
+Next steps:
+- Creating a Cart context to share cart information across components.
+- With the above, making another custom hook to get cart methods and information (very similar to useAuth).
+- Styles clean up! Very messy with styles for one component in other component style.css files.
+- Cart methods - increment, decrement, delete, add all need to be taken out of shop and either but directly into UserCart.js or the context file.
