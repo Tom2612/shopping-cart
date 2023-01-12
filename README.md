@@ -66,4 +66,4 @@ Next steps:
 - Creating a Cart context to share cart information across components.
 - With the above, making another custom hook to get cart methods and information (very similar to useAuth).
 - Styles clean up! Very messy with styles for one component in other component style.css files.
-- Cart methods - increment, decrement, delete, add all need to be taken out of shop and either but directly into UserCart.js or the context file.
+- Cart methods - increment, decrement, delete and add all need to be taken out of shop and either put directly into UserCart.js or the context file.
