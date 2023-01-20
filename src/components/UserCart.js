@@ -1,27 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { useAuth } from '../contexts/AuthContext';
-import { db } from '../firebase';
-import { collection, getDocs } from 'firebase/firestore';
+import React from 'react';
 import UserCartItem from './UserCartItem';
+import { useCart } from '../contexts/CartContext';
 
-export default function UserCart() {
-  const { currentUser } = useAuth();
-  const [userCart, setUserCart] = useState();
-  
-  useEffect(() => {
-    const getUserCart = async() => {
-      const arr = [];
-      const cartRef = collection(db, `user ${currentUser.uid}`);
-      const cartSnap = await getDocs(cartRef);
-        cartSnap.forEach((doc) => {
-          arr.push(doc.data());
-        });     
-        setUserCart(arr);
-    };
-
-    getUserCart();
-
-  }, []);
+export default function UserCart() {;
+  const { cart } = useCart()
 
 //Move item controls to here
   const increment = () => {
@@ -35,7 +17,7 @@ export default function UserCart() {
   return (
     <div className='user-cart--container'>
       <h1 className='user--cart--title'>My Cart</h1>
-      {userCart && userCart.map(item => (
+      {cart && cart.map(item => (
         <UserCartItem item={item} key={item.id}/>
       ))}
     </div>

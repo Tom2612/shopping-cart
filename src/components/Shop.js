@@ -3,9 +3,10 @@ import Cart from "./Cart";
 import '../styles/Shop.css'
 import { useEffect, useState } from "react";
 import { db } from "../firebase";
-import { collection, getDocs, setDoc, doc, getDoc } from 'firebase/firestore';
+import { collection, getDocs } from 'firebase/firestore';
 import { useAuth } from "../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { useCart } from '../contexts/CartContext';
 
 export default function Shop() {
   const [cart, setCart] = useState([]);
@@ -15,6 +16,7 @@ export default function Shop() {
 
   const { currentUser } = useAuth();
   const navigate = useNavigate();
+  const { addToCart } = useCart();
 
   //Products stored in firestore with IDs
   const [products, setProducts] = useState([]);
@@ -55,18 +57,7 @@ export default function Shop() {
     if (!currentUser) {
       return navigate('/signin', {state: {previousUrl: '/shop'}});
     };
-
-    const userProduct = {
-      ...information,
-      qty: 1,
-    }
-
-    try {
-      await setDoc(doc(db, `user ${currentUser.uid}`, information.id), userProduct);
-      setDataFetch(!dataFetch);
-    } catch (e) {
-      console.log(e);
-    }
+    await addToCart(information) 
   }
 
   const handleChange = (name, e) => {
