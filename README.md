@@ -18,9 +18,9 @@ Ultimately, I have a firm grasp on useState, useEffect, Router and some very bas
 
 ## New features 1
 
-Added a new features branch to work on changing the products to the top 20 sci-fi books. Had a small issue deploying it to gh-pages as the index route wasn't showing as home. Fixed this using HashRoute instead of BrowserRoute. 
+Added a new features branch to work on changing the products to the top 20 sci-fi books. Had a small issue deploying it to gh-pages as the index route wasn't showing as home. Fixed this using HashRoute instead of BrowserRoute.
 
-New features I want to add now: 
+New features I want to add now:
 
 - Dedicated cart overlay where you can see what products you've added and adjust quantities.
 - More routes for different book genres.
@@ -30,11 +30,12 @@ New features I want to add now:
 
 ## 4/1/23
 
-Been spending the past few weeks learning how to incorporate firebase into projects, particularly authentication and user accounts. The idea will be to have users save their basket between sessions. 
+Been spending the past few weeks learning how to incorporate firebase into projects, particularly authentication and user accounts. The idea will be to have users save their basket between sessions.
 
-Most recent changes have been creating a SignUp component that allows users to sign in with email and password. This is working and linked up to firebase. 
+Most recent changes have been creating a SignUp component that allows users to sign in with email and password. This is working and linked up to firebase.
 
 New things I am learning by doing this:
+
 - useContext to provide my authentication to all components rather than as props. Principles of prop drilling.
 - Setting up private routes (need to include).
 - useNavigate to automatically redirect users when signed up.
@@ -44,13 +45,13 @@ I then decided App.js didn't need to store the whole app functionality, and so I
 
 ## 5/1/23
 
-Just finished adding basic user authentication. You can now signup, signin and logout. I have protected routes using a PrivateRoute component that automatically redirects you to login if a user is not present. 
+Just finished adding basic user authentication. You can now signup, signin and logout. I have protected routes using a PrivateRoute component that automatically redirects you to login if a user is not present.
 
 Need to style these components and then work can begin on adding Firestore to the project to save a user's cart and retrieve that info. next time they login.
 
 ## 9/1/23
 
-Firestore can now save your cart if you add books, however these are forgotten if the shop reloads because the cart is set (and therefore reset) to empty. Need to first check if user has cart information stored and set cart to that or then make a new cart for the user. 
+Firestore can now save your cart if you add books, however these are forgotten if the shop reloads because the cart is set (and therefore reset) to empty. Need to first check if user has cart information stored and set cart to that or then make a new cart for the user.
 Another problem is getting the user's cart to display on the 'my cart' page. Perhaps I'll leave this for now and just focus on getting the shop working properly, including adding correct quantities to the items so the buttons don't also reset.
 
 ## 11/1/23
@@ -63,7 +64,13 @@ New developer woes - spent a good hour and a half trying to change Firestore str
 - Refactored and cleaned up code in Shop.js - trying to separate it into other modules.
 
 Next steps:
+
 - Creating a Cart context to share cart information across components.
 - With the above, making another custom hook to get cart methods and information (very similar to useAuth).
 - Styles clean up! Very messy with styles for one component in other component style.css files.
 - Cart methods - increment, decrement, delete and add all need to be taken out of shop and either put directly into UserCart.js or the context file.
+
+## 20/1/23
+
+Begun CartContext.js
+CartContext adds items to cart in firestore and collects cart details back. Shop.js calls useCart custom hook, UserCart calls cart from CartContext.
