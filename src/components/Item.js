@@ -15,7 +15,7 @@ export default function Item(props) {
             <div className='information'>
                 <h4 className='item--name'>{information.name}</h4>
                 <h4 className='item--author'>{information.author}</h4>
-                <img className='item--img' src={pictureSelector(information.name)} />
+                <img className='item--img' alt={information.name} src={pictureSelector(information.name)} />
                 <h4 className='item--price'>£{information.price}</h4>
             </div>
             <div className='btns'>

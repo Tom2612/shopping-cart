@@ -24,7 +24,7 @@ export default function UserCartItem(props) {
 
   return (
     <div className='cart--item'>
-        <img className='cart--item--img' src={pictureSelector(item.name)}></img>
+        <img className='cart--item--img' alt={item.name} src={pictureSelector(item.name)}></img>
         <h4 className='cart--item--title'>{item.name}</h4>
         <h4 className='cart--item--author'>{item.author}</h4>
         <h5 className='cart--item--price'>£{item.price}</h5>
