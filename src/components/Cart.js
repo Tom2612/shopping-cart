@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import '../styles/Cart.css';
 import { useCart } from '../contexts/CartContext';
 
 export default function Cart() {

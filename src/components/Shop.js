@@ -1,6 +1,5 @@
 import Item from "./Item";
 import Cart from "./Cart";
-import '../styles/Shop.css'
 import { useEffect, useState } from "react";
 import { db } from "../firebase";
 import { collection, getDocs } from 'firebase/firestore';
