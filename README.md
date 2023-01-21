@@ -78,3 +78,5 @@ CartContext adds items to cart in firestore and collects cart details back. Shop
 ## 21/1/23
 
 CartContext function complete, styles reworked and put into one file, userCart and item controls finished.
+Problem where current cart doesn't reload between logout and login of new user - still displaying old cart.
+Problem where if no cart loaded, the cart and shop won't work.

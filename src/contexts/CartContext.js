@@ -25,10 +25,11 @@ export function CartProvider({ children }) {
                 arr.push(doc.data());
                 });
             setCart(arr);
+            setLoading(false);
         };
 
-        getUserCart();
-        setLoading(false);
+        return getUserCart;
+        
     }, [dataFetch])
 
     // All cart functions here
