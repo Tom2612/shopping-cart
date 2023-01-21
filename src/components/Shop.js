@@ -31,7 +31,7 @@ export default function Shop() {
         <div className='shop--info'>
           <h2>Browse all titles</h2>
           <div>
-            {/* <Cart cart={cart} total={total} qty={qty}/> */}
+            <Cart />
           </div>
         </div>
         <div className='list--container'>

@@ -24,9 +24,8 @@ export function CartProvider({ children }) {
                 arr.push(doc.data());
                 });
             setCart(arr);
-                // change cart display qty and work out total?
         };
-        console.log(cart)
+
         getUserCart();
     }, [dataFetch])
 

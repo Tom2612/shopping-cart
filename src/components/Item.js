@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import '../styles/Item.css';
 import pictureSelector from '../utils/pictureSelector';
 import { useCart } from '../contexts/CartContext';
