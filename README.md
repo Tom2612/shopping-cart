@@ -74,3 +74,7 @@ Next steps:
 
 Begun CartContext.js
 CartContext adds items to cart in firestore and collects cart details back. Shop.js calls useCart custom hook, UserCart calls cart from CartContext.
+
+## 21/1/23
+
+CartContext function complete, styles reworked and put into one file, userCart and item controls finished.

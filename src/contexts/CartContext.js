@@ -13,6 +13,7 @@ export function useCart() {
 export function CartProvider({ children }) {
     const [cart, setCart] = useState(null);
     const [dataFetch, setDataFetch] = useState(false);
+    const [loading, setLoading] = useState(true);
     const { currentUser } = useAuth();
 
     useEffect(() => {
@@ -27,6 +28,7 @@ export function CartProvider({ children }) {
         };
 
         getUserCart();
+        setLoading(false);
     }, [dataFetch])
 
     // All cart functions here
@@ -103,7 +105,7 @@ export function CartProvider({ children }) {
 
     return (
         <CartContext.Provider value={value}>
-            { children }
+            { !loading && children }
         </CartContext.Provider>
     )
 }
