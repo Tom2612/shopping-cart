@@ -19,9 +19,12 @@ export default function UserCart() {;
 
   function getTotal() {
         let total = 0;
-        cart.map(product => {
+        if (currentCart !== null ) {
+          currentCart.map(product => {
             return total += product.qty * product.price
-        })
+          })
+        }
+        
         setTotal(total.toFixed(2));
     }
 

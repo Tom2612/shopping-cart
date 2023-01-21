@@ -28,6 +28,9 @@ export function CartProvider({ children }) {
             setLoading(false);
         };
 
+        if (!currentUser) {
+            return setCart([])
+        }
         return getUserCart;
         
     }, [dataFetch])
@@ -95,7 +98,7 @@ export function CartProvider({ children }) {
         }
         setDataFetch(!dataFetch);
     }
-
+    
     const value = {
         addToCart,
         cart,
@@ -106,7 +109,8 @@ export function CartProvider({ children }) {
 
     return (
         <CartContext.Provider value={value}>
-            { !loading && children }
+            {/* { !loading && children } */}
+            {children}
         </CartContext.Provider>
     )
 }

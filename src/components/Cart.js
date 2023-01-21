@@ -9,10 +9,11 @@ export default function Cart() {
 
     useEffect(() => {
         try {
-        getQty();
-        getTotal();
+            getQty();
+            getTotal();
+            
         } catch (e) {
-            console.log(e)
+            console.log(e);
         }
 
     }, [cart]);
@@ -28,9 +29,9 @@ export default function Cart() {
     function getTotal() {
         let total = 0;
         cart.map(product => {
-            return total += product.qty * product.price
+            return total += product.qty * product.price;
         })
-        setTotal(total.toFixed(2));
+        setTotal(total.toFixed(2));       
     }
 
     return (
