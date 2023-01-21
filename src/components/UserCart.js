@@ -1,23 +1,19 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import UserCartItem from './UserCartItem';
 import { useCart } from '../contexts/CartContext';
 
 export default function UserCart() {;
-  const { cart } = useCart()
+  const { cart } = useCart();
+  const [currentCart, setCurrentCart] = useState(null);
 
-//Move item controls to here
-  const increment = () => {
-
-  }
-
-  const decrement = () => {
-
-  }
+  useEffect(() => {
+    setCurrentCart(cart)
+  }, [cart])
 
   return (
     <div className='user-cart--container'>
       <h1 className='user--cart--title'>My Cart</h1>
-      {cart && cart.map(item => (
+      {currentCart && currentCart.map(item => (
         <UserCartItem item={item} key={item.id}/>
       ))}
     </div>

@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { db } from '../firebase';
-import { setDoc, doc, getDocs, collection } from 'firebase/firestore';
+import { setDoc, doc, getDocs, collection, updateDoc, deleteDoc } from 'firebase/firestore';
 import { useAuth } from './AuthContext';
 
 const CartContext = React.createContext();
@@ -26,39 +26,80 @@ export function CartProvider({ children }) {
             setCart(arr);
                 // change cart display qty and work out total?
         };
-
+        console.log(cart)
         getUserCart();
-    }, [])
+    }, [dataFetch])
 
     // All cart functions here
     const addToCart = async (information) => {
+
+        //Check to see if item is already in cart
+        let array = cart.map(product => product.name);
+        if (array.includes(information.name)) {
+            return 
+        };       
+
         const userProduct = {
             ...information,
             qty: 1,
         }
+        
         try {
             await setDoc(doc(db, `user ${currentUser.uid}`, information.id), userProduct);
-            setDataFetch(!dataFetch);
         } catch (e) {
             console.log(e);
         }
+        setDataFetch(!dataFetch);
     }
 
-    function incrementQty() {
-
+    const incrementQty = async (information) => {
+        console.log(information);
+        const productRef = doc(db, `user ${currentUser.uid}`, information.id);
+        try {
+            await updateDoc(productRef, {
+                qty: information.qty + 1
+            })
+        } catch (error) {
+            console.log('error', error);
+        }
+        setDataFetch(!dataFetch);
     }
 
-    function decrementQty() {
-
+    const decrementQty= async (information) => {
+        if (information.qty > 1) {
+            const productRef = doc(db, `user ${currentUser.uid}`, information.id);
+            try {
+                await updateDoc(productRef, {
+                    qty: information.qty - 1
+                })
+                console.log('decrementing!');
+            } catch(error) {
+                console.log('error', error);
+            }
+        } else {
+            await removeFromCart(information);
+            console.log('below 1, removed.');
+        }
+        setDataFetch(!dataFetch);
     }
 
-    function removeFromCart() {
-
+    const removeFromCart = async (information) => {
+        const productRef = doc(db, `user ${currentUser.uid}`, information.id);
+        try {
+            await deleteDoc(productRef);
+            console.log('product removed');
+        } catch (error) {
+            console.log('error', error);
+        }
+        setDataFetch(!dataFetch);
     }
 
     const value = {
         addToCart,
-        cart
+        cart,
+        incrementQty,
+        decrementQty,
+        removeFromCart
     }
 
     return (

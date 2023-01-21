@@ -1,12 +1,22 @@
 import React from 'react'
 import pictureSelector from '../utils/pictureSelector';
+import { useCart } from '../contexts/CartContext';
 
 export default function UserCartItem(props) {
     const { item } = props;
+    const { incrementQty, decrementQty, removeFromCart } = useCart();
     
     const getQuantity = () => {
         return item.qty;
     }
+
+    const increment = (information) => {
+      incrementQty(information);
+    }
+
+    const decrement = (information => {
+      decrementQty(information);
+    })
 
   return (
     <div className='cart--item'>
@@ -15,9 +25,9 @@ export default function UserCartItem(props) {
         <h4 className='cart--item--author'>{item.author}</h4>
         <h5 className='cart--item--price'>£{item.price}</h5>
         <div className='qty--ctrl'>
-            <button className='amount--btn' onClick={() => props.decrement(item.name)}>-</button>
+            <button className='amount--btn' onClick={() => decrement(item)}>-</button>
             <p className='current-qty'>{getQuantity(item.name)}</p>
-            <button className='amount--btn' onClick={() => props.increment(item.name)}>+</button>
+            <button className='amount--btn' onClick={() => increment(item)}>+</button>
         </div>
     </div>
   )

@@ -1,24 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/Item.css';
 import pictureSelector from '../utils/pictureSelector';
+import { useCart } from '../contexts/CartContext';
 
 export default function Item(props) {
     const { information } = props;
-    const { cart } = props;
+    const { addToCart } = useCart();
 
-    function buttons(name) {
-        const currentItems = props.cart.map(item => item.name);
-        if (currentItems.includes(name)) {
-            return true;
-        } else return false;
-    }
-
-    function getQuantity(name) {
-        return cart.map(item => {
-            if (item.name === name) {
-                return item.quantity;
-            }
-        })
+    function add(information) {
+        addToCart(information);
     }
 
     return(
@@ -30,7 +20,8 @@ export default function Item(props) {
                 <h4 className='item--price'>£{information.price}</h4>
             </div>
             <div className='btns'>
-                <button className='add-btn' onClick={() => props.addToCart(information)}>Add to cart</button>  
+                <button className='add-btn' onClick={() => add(information)}>Add to cart</button>
+                
             </div>         
         </div>
     )
