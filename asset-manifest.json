@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/shopping-cart/static/css/main.5d5c3d38.css",
-    "main.js": "/shopping-cart/static/js/main.5521b6c6.js",
+    "main.css": "/shopping-cart/static/css/main.a393371c.css",
+    "main.js": "/shopping-cart/static/js/main.cfe9ba02.js",
     "static/media/Hyperion.png": "/shopping-cart/static/media/Hyperion.3ad6088312ecdf1c0d52.png",
     "static/media/slaughter.png": "/shopping-cart/static/media/slaughter.caf1f1211abdfe9b6949.png",
     "static/media/JourneytotheCenter.png": "/shopping-cart/static/media/JourneytotheCenter.a475168ecc9e1e58fb0f.png",
@@ -24,11 +24,11 @@
     "static/media/Handmaids Tale.png": "/shopping-cart/static/media/Handmaids Tale.bc85a85c0ee555c414f8.png",
     "static/media/noImage.png": "/shopping-cart/static/media/noImage.c47ec7c145d4b10bc1d8.png",
     "index.html": "/shopping-cart/index.html",
-    "main.5d5c3d38.css.map": "/shopping-cart/static/css/main.5d5c3d38.css.map",
-    "main.5521b6c6.js.map": "/shopping-cart/static/js/main.5521b6c6.js.map"
+    "main.a393371c.css.map": "/shopping-cart/static/css/main.a393371c.css.map",
+    "main.cfe9ba02.js.map": "/shopping-cart/static/js/main.cfe9ba02.js.map"
   },
   "entrypoints": [
-    "static/css/main.5d5c3d38.css",
-    "static/js/main.5521b6c6.js"
+    "static/css/main.a393371c.css",
+    "static/js/main.cfe9ba02.js"
   ]
 }
