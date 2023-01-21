@@ -38,7 +38,7 @@
     justify-content: center;
 }
 .qty--ctrl {
-    display: flex;
+    /* display: flex; */
 }
 .current-qty {
     width: 25px;

@@ -14,9 +14,13 @@ export default function UserCartItem(props) {
       incrementQty(information);
     }
 
-    const decrement = (information => {
+    const decrement = (information) => {
       decrementQty(information);
-    })
+    }
+
+    const remove = (information) => {
+      removeFromCart(information);
+    }
 
   return (
     <div className='cart--item'>
@@ -24,11 +28,12 @@ export default function UserCartItem(props) {
         <h4 className='cart--item--title'>{item.name}</h4>
         <h4 className='cart--item--author'>{item.author}</h4>
         <h5 className='cart--item--price'>£{item.price}</h5>
-        <div className='qty--ctrl'>
-            <button className='amount--btn' onClick={() => decrement(item)}>-</button>
-            <p className='current-qty'>{getQuantity(item.name)}</p>
-            <button className='amount--btn' onClick={() => increment(item)}>+</button>
+        <div className='ctrl--btns'>
+          <button className='amount--btn' onClick={() => decrement(item)}>-</button>
+          <p className='current-qty'>{getQuantity(item.name)}</p>
+          <button className='amount--btn' onClick={() => increment(item)}>+</button>
         </div>
+          <p className='remove--btn' onClick={() => remove(item)}>Remove</p>
     </div>
   )
 }

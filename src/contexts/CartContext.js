@@ -43,7 +43,7 @@ export function CartProvider({ children }) {
             ...information,
             qty: 1,
         }
-        
+
         try {
             await setDoc(doc(db, `user ${currentUser.uid}`, information.id), userProduct);
         } catch (e) {
