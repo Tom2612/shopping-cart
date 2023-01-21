@@ -6,8 +6,6 @@ import { db } from "../firebase";
 import { collection, getDocs } from 'firebase/firestore';
 
 export default function Shop() {
-  const [total, setTotal] = useState(0);
-  const [qty, setQty] = useState([]);
 
   //Products stored in firestore with IDs
   const [products, setProducts] = useState([]);

@@ -7,9 +7,15 @@ export default function Cart() {
     const [total, setTotal] = useState(0);
     
     const { cart } = useCart();
+
     useEffect(() => {
+        try {
         getQty();
         getTotal();
+        } catch (e) {
+            console.log(e)
+        }
+
     }, [cart]);
 
     function getQty() {
