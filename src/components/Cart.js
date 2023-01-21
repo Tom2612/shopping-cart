@@ -30,7 +30,7 @@ export default function Cart() {
         cart.map(product => {
             return total += product.qty * product.price
         })
-        setTotal(total);
+        setTotal(total.toFixed(2));
     }
 
     return (
