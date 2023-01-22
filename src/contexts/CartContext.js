@@ -23,19 +23,25 @@ export function CartProvider({ children }) {
             const arr = [];
             const cartRef = collection(db, `user ${currentUser.uid}`);
             const cartSnap = await getDocs(cartRef);
-                cartSnap.forEach((doc) => {
+            cartSnap.forEach((doc) => {
                 arr.push(doc.data());
-                });
+            });
             setCart(arr);
             setLoading(false);
         };
 
         if (!currentUser) {
-            return setCart([])
+            return setCart([]);
         }
-        return getUserCart;
+        getUserCart();
         
-    }, [dataFetch])
+    }, [dataFetch]);
+
+    useEffect(() => {
+        setDataFetch(!dataFetch);
+        console.log(cart);
+
+    }, [currentUser])
 
     // All cart functions here
     const addToCart = async (information) => {
@@ -118,7 +124,6 @@ export function CartProvider({ children }) {
             if (!cart) {
                 return 0;
             } else {
-                console.log(cart)
                 total = cart.map(product => {
                     return product.qty * product.price;
                 }).reduce((a, b) => a + b, 0).toFixed(2);
