@@ -14,6 +14,8 @@ export function CartProvider({ children }) {
     const [cart, setCart] = useState(null);
     const [dataFetch, setDataFetch] = useState(false);
     const [loading, setLoading] = useState(true);
+    const [qty, setQty] = useState(0);
+    const [total, setTotal] = useState(0);
     const { currentUser } = useAuth();
 
     useEffect(() => {
@@ -98,18 +100,50 @@ export function CartProvider({ children }) {
         }
         setDataFetch(!dataFetch);
     }
+
+    useEffect(() => {
+        const getQty = () => {
+            let total = 0;
+            if(!cart) {
+                return 0;
+            } else {
+                cart.map(product => {
+                    return total += product.qty;
+                })
+            }
+            setQty(total);
+        }
+        const getTotal = () => {
+            let total = 0;
+            if (!cart) {
+                return 0;
+            } else {
+                console.log(cart)
+                total = cart.map(product => {
+                    return product.qty * product.price;
+                }).reduce((a, b) => a + b, 0).toFixed(2);
+            }
+            setTotal(total);
+        }
+
+        getQty();
+        getTotal();
+
+    }, [cart])
+    
     
     const value = {
         addToCart,
         cart,
         incrementQty,
         decrementQty,
-        removeFromCart
+        removeFromCart,
+        total,
+        qty
     }
 
     return (
         <CartContext.Provider value={value}>
-            {/* { !loading && children } */}
             {children}
         </CartContext.Provider>
     )
